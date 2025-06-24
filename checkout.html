@@ -1,110 +1,55 @@
+<!-- review-form.html -->
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Thanh toán</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <title>Đánh giá sản phẩm</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .star-rating input[type="radio"] {
+      display: none;
+    }
 
-  <body>
-    <div class="container py-5">
-      <h3 class="mb-4 text-center">Thông tin thanh toán ngân hàngyuio</h3>
-      <form>
-        <div class="mb-3">
-          <label for="fullName" class="form-label">Họ và tên</label>
-          <input
-            type="text"
-            class="form-control"
-            id="fullName"
-            placeholder="Nguyễn Văn A"
-            required
-          />
-        </div>
+    .star-rating label {
+      font-size: 2rem;
+      color: #ccc;
+      cursor: pointer;
+    }
 
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="example@email.com"
-            required
-          />
-        </div>
+    .star-rating input[type="radio"]:checked ~ label {
+      color: #ffc107;
+    }
 
-        <div class="mb-3">
-          <label for="phone" class="form-label">Số điện thoại</label>
-          <input
-            type="tel"
-            class="form-control"
-            id="phone"
-            placeholder="0123456789"
-            required
-          />
-        </div>
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #ffc107;
+    }
+  </style>
+</head>
+<body class="bg-light">
 
-        <div class="mb-3">
-          <label for="address" class="form-label">Địa chỉ giao hàng</label>
-          <textarea
-            class="form-control"
-            id="address"
-            rows="2"
-            placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố"
-            required
-          ></textarea>
-        </div>
-
-        <div class="mb-4">
-          <label class="form-label">Phương thức thanh toán</label>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="paymentMethod"
-              id="cod"
-              value="COD"
-              checked
-            />
-            <label class="form-check-label" for="cod">
-              Thanh toán khi nhận hàng (COD)
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="paymentMethod"
-              id="bank"
-              value="BANK"
-            />
-            <label class="form-check-label" for="bank">
-              Chuyển khoản ngân hàng
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="paymentMethod"
-              id="vnpay"
-              value="VNPAY"
-            />
-            <label class="form-check-label" for="vnpay">
-              Thanh toán qua VNPay (QR Code)
-            </label>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-success w-100">
-          Xác nhận thanh toán
-        </button>
-      </form>
+<div class="container mt-5">
+  <h3 class="mb-4">Đánh giá sản phẩm</h3>
+  <form>
+    <div class="mb-3">
+      <label for="comment" class="form-label">Nhận xét của bạn</label>
+      <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Viết nhận xét..."></textarea>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    <div class="mb-3">
+      <label class="form-label">Đánh giá sao</label>
+      <div class="star-rating d-flex flex-row-reverse justify-content-end">
+        <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+        <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+        <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
+  </form>
+</div>
+
+</body>
 </html>
